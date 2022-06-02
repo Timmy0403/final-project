@@ -31,6 +31,7 @@ import javax.swing.JScrollPane;
 import java.beans.PropertyChangeListener;
 import java.nio.file.FileSystemAlreadyExistsException;
 import java.beans.PropertyChangeEvent;
+import javax.swing.JTextField;
 
 public class final1 extends JFrame {
 
@@ -269,6 +270,9 @@ public class final1 extends JFrame {
 	public int chess[][] = new int[14][14];
 	private int sum_white=0; // count if one line goes to 5
 	private int sum_black=0;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 	/**
 	 * Create the frame.
 	 */
@@ -285,7 +289,7 @@ public class final1 extends JFrame {
 	
 		setBackground(Color.LIGHT_GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 606, 631); 
+		setBounds(100, 100, 513, 638); 
 		getContentPane().setLayout(null);
 		
 		JButton btnNewButton1_1 = new JButton("");
@@ -3311,5 +3315,26 @@ public class final1 extends JFrame {
 		btnNewButton12_12.setBackground(Color.LIGHT_GRAY);
 		btnNewButton12_12.setBounds(446, 446, 40, 40);
 		getContentPane().add(btnNewButton12_12);
+		
+		textField = new JTextField();
+		textField.setForeground(Color.RED);
+		textField.setBounds(6, 496, 300, 32);
+		getContentPane().add(textField);
+		textField.setColumns(10);
+		textField.setText("★特殊規則★");
+		
+		textField_1 = new JTextField();
+		textField_1.setForeground(Color.BLACK);
+		textField_1.setBounds(6, 527, 300, 32);
+		getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+		textField_1.setText("長連：落子點黑方不得連格超過五格");
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(6, 558, 300, 32);
+		getContentPane().add(textField_2);
+		textField_2.setColumns(10);
+		textField_2.setText("雙四：落子點黑方不得有兩方向以上連格四格");
+		
 	}
 }
