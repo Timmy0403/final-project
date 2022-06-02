@@ -3330,11 +3330,5 @@ public class final1 extends JFrame {
 		textField_1.setColumns(10);
 		textField_1.setText("長連：落子點黑方不得連格超過五格");
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(6, 558, 300, 32);
-		getContentPane().add(textField_2);
-		textField_2.setColumns(10);
-		textField_2.setText("雙四：落子點黑方不得有兩方向以上連格四格");
-		
 	}
 }
