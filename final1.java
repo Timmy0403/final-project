@@ -88,11 +88,15 @@ public class final1 extends JFrame {
 			}
 		}
 		// calculate the result
-		if(sum_black>5) {
+		if(sum_black==6) {
 			System.out.println("Black win");
 			System.exit(0);
 		}
 		else if(sum_white>5) {
+			System.out.println("White win");
+			System.exit(0);
+		}
+		else if(sum_black>6) {
 			System.out.println("White win");
 			System.exit(0);
 		}
@@ -137,11 +141,15 @@ public class final1 extends JFrame {
 				sum_white+=1;
 			}
 		}
-		if(sum_black>5) {
+		if(sum_black==6) {
 			System.out.println("Black win");
 			System.exit(0);
 		}
 		else if(sum_white>5) {
+			System.out.println("White win");
+			System.exit(0);
+		}
+		else if(sum_black>6) {
 			System.out.println("White win");
 			System.exit(0);
 		}
@@ -186,11 +194,15 @@ public class final1 extends JFrame {
 				sum_white+=1;
 			}
 		}
-		if(sum_black>5) {
+		if(sum_black==6) {
 			System.out.println("Black win");
 			System.exit(0);
 		}
 		else if(sum_white>5) {
+			System.out.println("White win");
+			System.exit(0);
+		}
+		else if(sum_black>6) {
 			System.out.println("White win");
 			System.exit(0);
 		}
@@ -235,11 +247,15 @@ public class final1 extends JFrame {
 				sum_white+=1;
 			}
 		}
-		if(sum_black>5) {
+		if(sum_black==6) {
 			System.out.println("Black win");
 			System.exit(0);
 		}
 		else if(sum_white>5) {
+			System.out.println("White win");
+			System.exit(0);
+		}
+		else if(sum_black>6) {
 			System.out.println("White win");
 			System.exit(0);
 		}
@@ -249,10 +265,10 @@ public class final1 extends JFrame {
 			sum_white=0;
 		}
 	}
-	int step=0; // count the steps
-	int chess[][] = new int[14][14];
-	int sum_white=0; // count if one line goes to 5
-	int sum_black=0;
+	private int step=0; // count the steps
+	public int chess[][] = new int[14][14];
+	private int sum_white=0; // count if one line goes to 5
+	private int sum_black=0;
 	/**
 	 * Create the frame.
 	 */
@@ -269,7 +285,7 @@ public class final1 extends JFrame {
 	
 		setBackground(Color.LIGHT_GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 524, 545); 
+		setBounds(100, 100, 606, 631); 
 		getContentPane().setLayout(null);
 		
 		JButton btnNewButton1_1 = new JButton("");
