@@ -52,6 +52,45 @@ public class final1 extends JFrame {
 	}
 	public void judge_the_result(int row,int column) {
 		System.out.printf("Step%d:(%d,%d)\n",step,row,column);
+		
+		/*判斷禁手--雙四*/
+		//黑子橫向
+		for(int x=row,y=column;y>y-4;y--) {
+			if(chess[x][y]!=1) break;
+			else sum_black_horizontal++;
+		}
+		for(int x=row,y=column;y<y+4;y++) {
+			if(chess[x][y]!=1) break;
+			else sum_black_horizontal++;
+		}
+	    //黑子縱向
+		for(int x=row,y=column;x>x-4;x--) {
+			if(chess[x][y]!=1) break;
+			else sum_black_vertical++;
+		}
+		for(int x=row,y=column;x<x+4;x++) {
+			if(chess[x][y]!=1) break;
+			else sum_black_vertical++;
+		}
+		//黑子反斜
+		for(int x=row,y=column;x>x-4 && y>y-4;x--,y--) {
+			if(chess[x][y]!=1) break;
+			else sum_black_backslash++;
+		}
+		for(int x=row,y=column;x<x+4 && y<y+4;x++,y++) {
+			if(chess[x][y]!=1) break;
+			else sum_black_backslash++;
+		}
+		//黑子正斜
+		for(int x=row,y=column;x>x-4 && y<y+4;x--,y++) {
+			if(chess[x][y]!=1) break;
+			else sum_black_slash++;
+		}
+		for(int x=row,y=column;x<x+4 && y>y-4;x++,y--) {
+			if(chess[x][y]!=1) break;
+			else sum_black_slash++;
+		}
+		
 		// right to left for black
 		for(int x=row,y=column;y>y-5;y--) {
 			if(chess[x][y]==0 || chess[x][y]==2) {
@@ -106,6 +145,25 @@ public class final1 extends JFrame {
 			sum_black=0;
 			sum_white=0;
 		}
+		//雙四判斷
+		if(sum_black_horizontal==5) horizontal_four = true;
+		if(sum_black_vertical==5) vertical_four = true;
+		if(sum_black_backslash==5) backslash_four = true;
+		if(sum_black_slash==5) slash_four = true;
+		if((horizontal_four&&vertical_four)||(horizontal_four&&backslash_four)||(horizontal_four&&slash_four)||(vertical_four&&backslash_four)||(vertical_four&&slash_four)||(backslash_four&&slash_four)) {
+			System.out.println("White win");
+			System.exit(0);
+		}else {
+			sum_black_horizontal = 0;
+			sum_black_vertical = 0;
+			sum_black_backslash = 0;
+			sum_black_slash = 0;
+			horizontal_four = false;
+			vertical_four = false;
+			backslash_four = false;
+			slash_four = false;
+		}
+			
 		// down to up for black
 		for(int x=row,y=column;x>x-5;x--) {
 			if(chess[x][y]==0 || chess[x][y]==2) {
@@ -270,6 +328,14 @@ public class final1 extends JFrame {
 	public int chess[][] = new int[14][14];
 	private int sum_white=0; // count if one line goes to 5
 	private int sum_black=0;
+	private int sum_black_horizontal=0; 
+	private int sum_black_vertical=0;
+	private int sum_black_slash=0;
+	private int sum_black_backslash=0;
+	boolean horizontal_four = false;
+    boolean vertical_four = false;
+    boolean slash_four = false;
+    boolean backslash_four = false;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
